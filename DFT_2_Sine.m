@@ -3,7 +3,7 @@ function DFT_2_Sine(f1,f2,a,N,Nzp)
 Fs = 4410; % in hertz
 T = 1/Fs;
 t = (0:(N-1))*T;
-x = a*sin(2*pi*f1*t)+a*sin(2*pi*f2*t);
+x = sin(2*pi*f1*t)+a*sin(2*pi*f2*t);
 X = fftshift(fft(x,Nzp));
 figure; plot(t,x);
 
