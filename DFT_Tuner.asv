@@ -1,0 +1,12 @@
+% Samuel Stone and Isaac Lawson-Hughes
+function fo_est = DFT_Tuner(x,b_E,b_E,b_D)
+% First, Find the DFT of x
+Nzp = 2^15;
+X = fftshift(fft(x,Nzp));
+% Find the product of the signal and the filter
+y_E = X.*b_E;
+y_A = X.*b_A;
+y_D = X.*b_D;
+
+
+
