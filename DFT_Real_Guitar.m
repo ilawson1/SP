@@ -1,5 +1,5 @@
 % Sam Stone and Isaac Lawson-Hughes
-function DFT_Real_Guitar()
+function [x_E,x_A,x_D] = DFT_Real_Guitar()
 close all
 Fs = 4410;
 T = 1/Fs;
