@@ -11,7 +11,7 @@ t = 0:T:1; % time varies from zero to 1 seconds with the standard Fs
 % Compute the FS for time t
 x=0;
 for i=1:10
-    x =x+ A(i)*cos(pi*fo*i*t+phase(i));
+    x =x+ A(i)*cos(fo*i*t+phase(i));
 end
 
 % %% Test written to show FS
