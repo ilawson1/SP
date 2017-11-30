@@ -8,7 +8,7 @@ Fs = 4410;
 y_E = filter(b_E,1,x);
 y_A = filter(b_A,1,x);
 y_D = filter(b_D,1,x);
-%y_All = filter(b_A,1,filter(b_D,1,y_E));
+y_All = filter(b_A,1,filter(b_D,1,y_E));
 [b_LP,b_HP] = DFT_LOW_HIGH_PASS();
 LP = filter(b_LP,1,x);
 HP = filter(b_HP,1,x);
@@ -16,24 +16,24 @@ HP = filter(b_HP,1,x);
 power_E = sum(y_E.^2)/length(y_E);
 power_A = sum(y_A.^2)/length(y_A);
 power_D = sum(y_D.^2)/length(y_D);
-%power_All =sum(y_All.^2)/length(y_All);
-%power_None = sum(x.^2)/length(X);
-power_LP = sum(LP.^2)/length(LP);
-power_HP = sum(HP.^2)/length(HP);
-comp = [power_E ;power_A; power_D;power_LP;power_HP];
+power_All =sum(y_All.^2)/length(y_All);
+power_None = sum(x.^2)/length(X);
+% power_LP = sum(LP.^2)/length(LP);
+% power_HP = sum(HP.^2)/length(HP);
+comp = [power_E ;power_A; power_D;power_All;power_None];
 ref = [b_E; b_A; b_D];
 f_ref = [82.41; 110; 146.83];
 [v,ind] = max(comp); % v is unused
-if(ind > 3)
-    fo_est = NaN;
-    if(ind == 4)
-        disp('Freq. Far too Low');
-    end
-    if(ind == 5)
-        disp('Freq. Far too High');
-    end
-    return
-end
+% if(ind > 3)
+%     fo_est = NaN;
+%     if(ind == 4)
+%         disp('Freq. Far too Low');
+%     end
+%     if(ind == 5)
+%         disp('Freq. Far too High');
+%     end
+%     return
+% end
 b = ref(ind,:); %The correct band
 ind;
 f1 = f_ref(ind);

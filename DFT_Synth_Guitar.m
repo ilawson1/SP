@@ -31,7 +31,7 @@ N = size(X,2);
 f = ((-N/2):(N/2-1))*Fs/Nzp;
 subplot(2,1,1); plot(f,abs(X));
 title('|X| in terms of f');
-axis([0 1000 0 200]);
+axis([0 Fs/2 0 200]);
 subplot(2,1,2); plot(f,abs(X_H));
 title('|X| in terms of f with hamming window');
 axis([0 1000 0 200]);
