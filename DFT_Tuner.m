@@ -13,9 +13,9 @@ y_D = filter(b_D,1,x);
 LP = filter(b_LP,1,x);
 HP = filter(b_HP,1,x);
 % Find the power of each output with sum of squares
-power_E = sum(y_E.^2)/length(y_E);
-power_A = sum(y_A.^2)/length(y_A);
-power_D = sum(y_D.^2)/length(y_D);
+power_E = sum(y_E.^2)/length(y_E)
+power_A = sum(y_A.^2)/length(y_A)
+power_D = sum(y_D.^2)/length(y_D)
 %power_All =sum(y_All.^2)/length(y_All);
 %power_None = sum(x.^2)/length(X);
 power_LP = sum(LP.^2)/length(LP);
@@ -24,16 +24,16 @@ comp = [power_E ;power_A; power_D;power_LP;power_HP];
 ref = [b_E; b_A; b_D];
 f_ref = [82.41; 110; 146.83];
 [v,ind] = max(comp); % v is unused
-if(ind > 3)
-    fo_est = NaN;
-    if(ind == 4)
-        disp('Freq. Far too Low');
-    end
-    if(ind == 5)
-        disp('Freq. Far too High');
-    end
-    return
-end
+% if(ind > 3)
+%     fo_est = NaN;
+%     if(ind == 4)
+%         disp('Freq. Far too Low');
+%     end
+%     if(ind == 5)
+%         disp('Freq. Far too High');
+%     end
+%     return
+% end
 b = ref(ind,:); %The correct band
 ind;
 f1 = f_ref(ind);
