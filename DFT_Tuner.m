@@ -24,16 +24,16 @@ comp = [power_E ;power_A; power_D;power_LP;power_HP];
 ref = [b_E; b_A; b_D];
 f_ref = [82.41; 110; 146.83];
 [v,ind] = max(comp); % v is unused
-% if(ind > 3)
-%     fo_est = NaN;
-%     if(ind == 4)
-%         disp('Freq. Far too Low');
-%     end
-%     if(ind == 5)
-%         disp('Freq. Far too High');
-%     end
-%     return
-% end
+if(ind > 3)
+    fo_est = NaN;
+    if(ind == 4)
+        disp('Freq. Far too Low');
+    end
+    if(ind == 5)
+        disp('Freq. Far too High');
+    end
+    return
+end
 b = ref(ind,:); %The correct band
 ind;
 f1 = f_ref(ind);
