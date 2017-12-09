@@ -58,7 +58,9 @@ disp(['Distance in Cents ',num2str(d)]);
 figure; plot((1:length(Y_H_S))./Nzp.*Fs,20*log10(Y_H_S));
 hold on
 plot(fo_est, 20*log10((Y_H_S(maxPos))),'o','markeredgecolor','r');
-title('Frequecy domain view of input signal and estimated frequency');
+title('Frequency domain view of input signal and estimated frequency');
+ylabel('Magnitude (dB)');
+xlabel('Frequency (Hz)');
 xlim([0 Fs/2]);
 lower = 1*min(20*log10((abs(Y_H_S))))
 upper = 1.2*max(20*log10((abs(Y_H_S))))
