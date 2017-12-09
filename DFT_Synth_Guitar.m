@@ -34,7 +34,7 @@ title('|X| in terms of f');
 xlabel('Frequency (Hz)');
 ylabel('Magnitude (dB)');
 axis([0 Fs/2 0 200]);
-subplot(2,1,2); plot(f,20*log(abs(X_H)));
+subplot(2,1,2); plot(f,20*log10(abs(X_H)));
 title('|X| in terms of f with hamming window');
 axis([0 1000 0 200]);
 xlabel('Frequency (Hz)');
