@@ -15,10 +15,16 @@ t_D = (0:(size(x_D,2)-1))*T;
 t_E = (0:(size(x_E,2)-1))*T;
 subplot(3,1,1); plot(t_E,x_E);
 title('E');
+xlabel('Time (s)');
+ylabel('Amplitude');
 subplot(3,1,2); plot(t_A,x_A)
 title('A');
+xlabel('Time (s)');
+ylabel('Amplitude');
 subplot(3,1,3); plot(t_D,x_D)
 title('D');
+xlabel('Time (s)');
+ylabel('Amplitude');
 
 % Extract 4 to 5 seconds of A,D,E and plot
 x_E = x_E((4*Fs):(5*Fs));
@@ -33,10 +39,16 @@ t_D = t_D + 4;
 t_E = t_E + 4;
 subplot(3,1,1); plot(t_E,x_E);
 title('E');
+xlabel('Time (s)');
+ylabel('Amplitude');
 subplot(3,1,2); plot(t_A,x_A)
 title('A');
+xlabel('Time (s)');
+ylabel('Amplitude');
 subplot(3,1,3); plot(t_D,x_D)
 title('D');
+xlabel('Time (s)');
+ylabel('Amplitude');
 % Compute DFT using FFT without hamming window
 X_E = fftshift(fft(x_E,Nzp));
 X_D = fftshift(fft(x_D,Nzp));
@@ -53,10 +65,14 @@ t = ((-Nzp/2):(Nzp/2-1))*Fs/Nzp; % used to plot DFT
 figure;
 subplot(2,1,1); plot(t,20*log10(abs(X_A)));
 title('|X_A| in db vs f');
+ylabel('Magnitude (dB)');
+xlabel('Frequency (Hz)');
 xlim([0 1000]);
 ylim auto;
 subplot(2,1,2); plot(t,20*log10(abs(X_A_H)));
 title('|X_A| with hamming window in db vs f');
+ylabel('Magnitude (dB)');
+xlabel('Frequency (Hz)');
 xlim([0 1000]);
 ylim auto;
 
@@ -64,10 +80,14 @@ ylim auto;
 figure;
 subplot(2,1,1); plot(t,20*log10(abs(X_D)));
 title('|X_D| in db vs f');
+ylabel('Magnitude (dB)');
+xlabel('Frequency (Hz)');
 xlim([0 1000]);
 ylim auto;
 subplot(2,1,2); plot(t,20*log10(abs(X_D_H)));
 title('|X_D| with hamming window in db vs f');
+ylabel('Magnitude (dB)');
+xlabel('Frequency (Hz)');
 xlim([0 1000]);
 ylim auto;
 
@@ -75,10 +95,14 @@ ylim auto;
 figure;
 subplot(2,1,1); plot(t,20*log10(abs(X_E)));
 title('|X_E| in db vs f');
+ylabel('Magnitude (dB)');
+xlabel('Frequency (Hz)');
 xlim([0 1000]);
 ylim auto;
 subplot(2,1,2); plot(t,20*log10(abs(X_E_H)));
 title('|X_E| with hamming window in db vs f');
+ylabel('Magnitude (dB)');
+xlabel('Frequency (Hz)');
 xlim([0 1000]);
 ylim auto;
 
